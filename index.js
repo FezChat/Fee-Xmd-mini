@@ -9,7 +9,7 @@ async function startBot() {
   const sock = makeWASocket({
     auth: state,
     printQRInTerminal: true,
-    browser: ['MASTER MIND', 'Chrome', '1.0.0'],
+    browser: ['FrediAI', 'Chrome', '1.0.0'],
   });
 
   sock.ev.on('creds.update', saveState);
@@ -34,7 +34,7 @@ async function startBot() {
 [4:47 AM, 1/7/2026] my best  frend: const msg = m.message.conversation || m.message.extendedTextMessage?.text || '';
 
     if (msg.startsWith('.menu')) {
-      await sock.sendMessage(from, { text: '🔥 ADEEL X MD MINI BOT MENU 🔥\n\n✅ .menu\n✅ .owner\n✅ .help\n\n📌 ᴘᴏᴡᴇʀ ʙʏ ᴍᴀғɪᴀ ᴀᴅᴇᴇʟ' }, { quoted: m });
+      await sock.sendMessage(from, { text: '🔥 FEE-XMD-MINI BOT MENU 🔥\n\n✅ .menu\n✅ .owner\n✅ .help\n\n📌 𝒑𝒐𝒘𝒆𝒓𝒆𝒅 𝒃𝒚 𝒇𝒆𝒆-𝒙𝒎𝒅' }, { quoted: m });
     }
 
     if (msg.startsWith('.owner')) {
