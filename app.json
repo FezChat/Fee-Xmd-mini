@@ -1,0 +1,21 @@
+{
+    "name": "free-sc-mini",
+    "description": "mini web bot",
+    "logo": "https://files.catbox.moe/15z65y.jpg",
+    "repository": "https://github.com/adeelsabqi11/ADEEL-MD-WHATSAPP-BOT-",
+    
+    "keywords": [
+    "adeelsabqi11","ADEEL-MD-WHATSAPP-BOT-"
+    ],
+    
+    "success_url": "/", 
+    "buildpacks": [{ "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" } ],
+    "env": {      
+      "PORT": {
+        "description": "Port for web app.4000,5000,3000... any!",
+        "value": "5000",
+        "required": false 
+      }
+    }   
+
+}
