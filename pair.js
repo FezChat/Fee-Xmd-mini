@@ -27,7 +27,7 @@ const {
 
 // ---------------- CONFIG ----------------
 
-const BOT_NAME_FANCY = 'ADEE X MD';
+const BOT_NAME_FANCY = 'FREDI';
 
 const config = {
   AUTO_VIEW_STATUS: 'true',
@@ -36,18 +36,18 @@ const config = {
   AUTO_LIKE_EMOJI: ['🔥','😀','👍','😃','😄','😁','😎','🥳','🌞','🌈','❤️'],
   PREFIX: '.',
   MAX_RETRIES: 3,
-  GROUP_INVITE_LINK: 'https://chat.whatsapp.com/BhemgSVZDHfIVMFOEgn3D4',
-  RCD_IMAGE_PATH: ' https://files.catbox.moe/1bho69.jpg',
-  NEWSLETTER_JID: '120363407804667405@newsletter',
+  GROUP_INVITE_LINK: 'https://chat.whatsapp.com/FA1GPSjfUQLCyFbquWnRIS',
+  RCD_IMAGE_PATH: 'https://files.catbox.moe/fkv1ui.jpg',
+  NEWSLETTER_JID: '120363423084862852@newsletter',
   OTP_EXPIRY: 300000,
-  OWNER_NUMBER: process.env.OWNER_NUMBER || '923131613251',
-  CHANNEL_LINK: 'https://whatsapp.com/channel/0029VavP4nX0G0XggHzhVg0R',
-  BOT_NAME: '𝐂𝐘𝐁𝐄𝐑 𝐍𝐎𝐕𝐀 𝐅𝐎𝐑𝐂𝐄 V1',
+  OWNER_NUMBER: process.env.OWNER_NUMBER || '255752593977',
+  CHANNEL_LINK: 'https://whatsapp.com/channel/0029Vb6mzVF7tkj42VNPrZ3V',
+  BOT_NAME: '𝙁𝙀𝙀-𝙓𝙈𝘿',
   BOT_VERSION: '1.0.0V',
-  OWNER_NAME: 'MAFIA-ADEEL',
-  IMAGE_PATH: 'https://files.catbox.moe/1bho69.jpg ',
-  BOT_FOOTER: 'ᗩᗪᗴᗴᒪ-᙭-ᗰᗪ',
-  BUTTON_IMAGES: { ALIVE: ' https://files.catbox.moe/1bho69.jpg' }
+  OWNER_NAME: 'Fredi_Ezra',
+  IMAGE_PATH: 'https://files.catbox.moe/fkv1ui.jpg ',
+  BOT_FOOTER: '𝒑𝒐𝒘𝒆𝒓𝒆𝒅 𝒃𝒚 𝒇𝒆𝒆-𝒙𝒎𝒅',
+  BUTTON_IMAGES: { ALIVE: 'https://files.catbox.moe/fkv1ui.jpg' }
 };
 
 async function msgHandler(sock, msg) {
@@ -62,15 +62,15 @@ async function msgHandler(sock, msg) {
     switch (command) {
       case '.menu':
         await sock.sendMessage(from, {
-          text: `╔══✪〘  MENU 〙✪══
-╠ 📌 .menu - Show this menu
-╠ 🧠 .help - Help section
-╠ 🎵 .alive- Status: Online
-╠ 🎵 .ping - Response Time
-╠ 🎵 .emoji- convert to emoji
-╠ 🎵 .song <name> - Download song
-╠ 📷 .photo <name> - Get image
-╚═════✪`
+          text: `╭┈┈❥〘  MENU 〙✿┈┈
+┋ 📌 .menu - Show this menu
+┋ 🧠 .help - Help section
+┋ 🎵 .alive- Status: Online
+┋ 🎵 .ping - Response Time
+┋ 🎵 .emoji- convert to emoji
+┋ 🎵 .song <name> - Download song
+┋ 📷 .photo <name> - Get image
+╰┈┈┈┈┈┈┈┈❥`
         }, { quoted: msg });
         break;
 		
@@ -78,74 +78,74 @@ async function msgHandler(sock, msg) {
   case '.alive':
     await sock.sendMessage(from, {
       text: `*🧬 BOT IDENTITY 🧬*
-╔══════════════════════════════╗
-║ 🔹 *Name:* 𝐀ᴅᴇᴇʟ 𝐗𝙼𝙳 🫆         
-║ 🔸 *Version:* V3                        ║
-║ 🌍 *Origin:* ᴘᴀᴋɪsᴛᴀɴ 🇸🇦            
-║ 🛠️ *By:* MAFIA ADEEL          ║
-╚══════════════════════════════╝
+╭┈┈┈┈┈┈┈┈┈┈┈┈❥✿
+┋ 🔹 *Name:* 𝙁𝙀𝙀-𝙓𝙈𝘿 🩷         
+┋ 🔸 *Version:* V1                        
+┋ 🌍 *Origin:* tz 🇹🇿              
+┋ 🛠️ *By:* Fredi Ezra          
+╰┈┈┈┈┈┈┈┈┈┈┈┈❥✿
 
 ---
 
 *🌐💭 AVAILABLE COMMANDS 💭🌐*
 
-╔══════════════════════════════════════╗
-║ ⚡ `.alive`
-║    ┗ 🟢 _Check bot status_
-║
-║ 🎵 `.Song`
-║    ┗ 🎧 _Download your favorite songs_
-║
-║ 🖼️ `.winfo`
-║    ┗ 📸 _Fetch user profile picture_
-║
-║ 🎨 `.aiimg`
-║    ┗ 🤖 _Generate AI-powered images_
-║
-║ 🖋️ `.logo`
-║    ┗ 🧩 _Create stylish logos_
-║
-║ ✨ `.fancy`
-║    ┗ 🔤 _Explore fancy text styles_
-║
-║ 🎬 `.tiktok`
-║    ┗ 📥 _Download TikTok videos_
-║
-║ 📘 `.fb`
-║    ┗ 📥 _Download Facebook videos_
-║
-║ 📸 `.ig`
-║    ┗ 📥 _Download Instagram videos_
-║
-║ 🔍 `.ts`
-║    ┗ 🎯 _Search TikTok content_
-║
-║ 🧠 `.ai`
-║    ┗ 💬 _Start a new AI chat_
-║
-║ 🗞️ `.news`
-║    ┗ 📰 _Get the latest news updates_
-║
-║ 🚀 `.nasa`
-║    ┗ 🌌 _Explore NASA news_
-║
-║ 🧃 `.gossip`
-║    ┗ 🗣️ _Catch up on gossip news_
-║
-║ 🏏 `.cricket`
-║    ┗ 🏆 _Cricket news & updates_
-║
-║ 💣 `.bomb`
-║    ┗ ⚠️ _Send bomb message_
-║
-║ 🗑️ `.deleteme`
-║    ┗ ❌ _Delete your session_
-╚══════════════════════════════════════╝
+❥┈┈┈┈┈┈┈┈┈┈┈┈┈┈➤
+┋ ⚡ `.alive`
+┋    ┗ 🟢 _Check bot status_
+┋
+┋ 🎵 `.Song`
+┋    ┗ 🎧 _Download your favorite songs_
+┋
+┋ 🖼️ `.winfo`
+┋    ┗ 📸 _Fetch user profile picture_
+┋
+┋ 🎨 `.aiimg`
+┋    ┗ 🤖 _Generate AI-powered images_
+┋
+┋ 🖋️ `.logo`
+┋    ┗ 🧩 _Create stylish logos_
+┋
+┋ ✨ `.fancy`
+┋    ┗ 🔤 _Explore fancy text styles_
+┋
+┋ 🎬 `.tiktok`
+┋    ┗ 📥 _Download TikTok videos_
+┋
+┋ 📘 `.fb`
+┋    ┗ 📥 _Download Facebook videos_
+┋
+┋ 📸 `.ig`
+┋    ┗ 📥 _Download Instagram videos_
+┋
+┋ 🔍 `.ts`
+┋    ┗ 🎯 _Search TikTok content_
+┋
+┋ 🧠 `.ai`
+┋    ┗ 💬 _Start a new AI chat_
+┋
+┋ 🗞️ `.news`
+┋    ┗ 📰 _Get the latest news updates_
+┋
+┋ 🚀 `.nasa`
+┋    ┗ 🌌 _Explore NASA news_
+┋
+┋ 🧃 `.gossip`
+┋    ┗ 🗣️ _Catch up on gossip news_
+┋
+┋ 🏏 `.cricket`
+┋    ┗ 🏆 _Cricket news & updates_
+┋
+┋ 💣 `.bomb`
+┋    ┗ ⚠️ _Send bomb message_
+┋
+┋ 🗑️ `.deleteme`
+┋    ┗ ❌ _Delete your session_
+❥┈┈┈┈┈┈┈┈┈┈┈┈┈┈➤
 
 ---
 
-🧠 _Stay sharp. Stay cyber. Stay venomous._ 🐍
-💻 POWER BY *𝐌ᴀғɪᴀ 𝐀ᴅᴇᴇʟ* | 🏴‍☠️ PAKISTANI`
+🩷 _Nice day. Enjoy your world. Enjoy to be._ 🩷
+💻 *𝒑𝒐𝒘𝒆𝒓𝒆𝒅 𝒃𝒚 𝒇𝒆𝒆-𝒙𝒎𝒅* ┋👹 TANZANIA`
     }, { quoted: msg });
     break;
 
@@ -338,15 +338,15 @@ const apikey = "dew_uC8L60kMO6GvgqMzZrELKvBjXJe3GlGK8J2u7gtr"; // Paste Your Api
 
   const { download_url, title, thumbnail, duration, quality } = get.result;
 
-  const caption = `Your Bot Name AUDIO DOWNLOADER
+  const caption = `FEE-XMD-MINI AUDIO DOWNLOADER
 
-╭──────────────╮
+╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
 ♻️ Title: \${title}\
 
 ⏱️ Duration: ${duration || 'N/A'}
 
 🔊 Quality: ${quality || '128kbps'}
-╰──────────────╯
+╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯
 ඔයා කැමතිම පාටෙන් ලස්සන react එකක් දාගෙන යමු 💖🍭
 
 Reply with a number to download 🫆:
@@ -355,7 +355,7 @@ Reply with a number to download 🫆:
 ➁ Audio (mp3)
 ➌ Voice Note (ptt)
 
-> CHATU X MD `;
+> 𝒑𝒐𝒘𝒆𝒓𝒆𝒅 𝒃𝒚 𝒇𝒆𝒆-𝒙𝒎𝒅 `;
 
 // Send main message
 const resMsg = await socket.sendMessage(sender, {
@@ -442,7 +442,7 @@ case '.LOGO':
     // හෝ image එකක් reply කරන්න
     conn.sendMessage(m.chat, {
         image: { url: 'https://example.com/your-logo.png' }, // ඔබේ ලෝගෝ image url එක මෙතන දාන්න
-        caption: '🔥 *CYBER NOVA FORCE* 🔥'
+        caption: '🔥 *𝒑𝒐𝒘𝒆𝒓𝒆𝒅 𝒃𝒚 𝒇𝒆𝒆-𝒙𝒎𝒅* 🔥'
     }, { quoted: m });
     break;
 
@@ -503,10 +503,10 @@ case 'info':
   let botName = conn.user.name || 'Bot';
 
   let infoMessage = `🤖 *Bot Information*\n`
-    + `Name: ᗩᗪᗴᗴᒪ-᙭-ᗰᗪ`
-    + `👤 *𝐌ᴀғɪᴀ 𝐀ᴅᴇᴇʟ*`
+    + `Name: FEE-XMD-MINI`
+    + `👤 *Fredi Ezra*`
     + `User ID:{user}\n`
-    + `Name: 𝐀ᴅᴇᴇʟ`
+    + `Name: Fredi AI`
     + `Is Group:{m.isGroup ? 'Yes' : 'No'}`;
 
   await m.reply(infoMessage);
@@ -533,8 +533,8 @@ case 'translate':
 case 'owner':
 case 'creator':
   // Owner contact info
-  const ownerNumber = '923131613251'; // country code + number without '+'
-  const ownerName = '𝐌ᴀғɪᴀ 𝐀ᴅᴇᴇʟ';
+  const ownerNumber = '255752593977'; // country code + number without '+'
+  const ownerName = 'Fredi AI';
 
   conn.sendMessage(m.chat, {
     contacts: {
@@ -689,7 +689,7 @@ case 'feedback': {
   if (!args.length) return reply('කරුණාකර feedback එකක් ලියන්න.');
 
   let feedbackMsg = args.join(' ');
-  let ownerNumber = '94710632039@s.whatsapp.net';  // Bot owner WhatsApp JID එක
+  let ownerNumber = '255752593977@s.whatsapp.net';  // Bot owner WhatsApp JID එක
 
   // Owner ට feedback message එක යවන්න
   client.sendMessage(ownerNumber, { text: `*New Feedback Received*\n\nfeedbackMsg: @{m.sender.split('@')[0]}` }, { mentions: [m.sender] });
@@ -711,7 +711,7 @@ Hello everyone! If you want to increase your followers, likes, or views on platf
 
 Contact us now to get started!
 
-*Owner:* +94 74 133 6839
+*Owner:* 255752593977
   `;
   conn.sendMessage(from, { text: boostMessage }, { quoted: m });
   break;
@@ -729,7 +729,7 @@ Hello! This bot has been updated with new features and improvements.
 
 Thank you for using our bot! For any feedback or issues, contact the owner.
 
-*Owner:* +92 313 1613 251
+*Owner:* 255752593977
   `;
   conn.sendMessage(from, { text: updateMessage }, { quoted: m });
   break;
