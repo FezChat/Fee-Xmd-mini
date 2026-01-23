@@ -21,7 +21,7 @@ async function startBot() {
       console.log('connection closed due to', lastDisconnect?.error, ', reconnecting', shouldReconnect);
       if (shouldReconnect) startBot();
     } else if (connection === 'open') {
-      console.log('Master Bot connected ✅');
+      console.log('Fredi Bot connected ✅');
     }
   });
 
