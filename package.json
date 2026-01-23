@@ -2,7 +2,7 @@
 
 
 {
-  "name": "adeel xmd mini-whatsapp-bot",
+  "name": "fee-xmdmini-bot",
   "version": "1.0.0",
   "description": "A simple WhatsApp mini bot using Baileys",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "baileys",
     "mini"
   ],
-  "author": "adeelxmd",
+  "author": "fredi_ezra",
   "license": "MIT",
   "dependencies": {
     "@whiskeysockets/baileys": "github:FezChat/SocketsBaileys.git",
