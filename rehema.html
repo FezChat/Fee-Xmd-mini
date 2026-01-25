@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fee-Mini Admin |</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://files.catbox.moe/1u44r5.jpeg">
+    <meta name="theme-color" content="#ff6b00">
+    <meta name="description" content="WhatsApp Mimi bot by Fredi.E.Ezra from Tanzania">
+    <meta name="keywords" content="Free_bot, fredi_AI, fee-xmd device, bots, WhatsApp">
+    <meta name="author" content="Fredi.E.Ezra">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chibi:wght@400;700&family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@500&display=swap');
+        
+        /* System Theme Detection - Light Mode */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f8fafc;
+                --panel: #ffffff;
+                --accent: #f97316; /* Orange for app color */
+                --danger: #ef4444;
+                --success: #10b981;
+                --text-dim: #64748b;
+                --border: rgba(0, 0, 0, 0.08);
+                --glow: rgba(249, 115, 22, 0.15);
+            }
+            body {
+                background: var(--bg);
+                color: #1e293b;
+                background-image:
+                    radial-gradient(circle at 50% 0%, #e2e8f0 0%, transparent 70%),
+                    linear-gradient(var(--border) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            }
+            .brand-info h1 { color: var(--accent); }
+            .search-input {
+                background: var(--panel);
+                color: #1e293b;
+                border: 1px solid var(--border);
+            }
+        }
+        
+        /* System Theme Detection - Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0b0e14;
+                --panel: #13171f;
+                --accent: #f97316; /* Orange for app color */
+                --danger: #ff3b3b;
+                --success: #00ff88;
+                --text-dim: #94a3b8;
+                --border: rgba(255, 255, 255, 0.05);
+                --glow: rgba(249, 115, 22, 0.15);
+            }
+            body {
+                background: var(--bg);
+                color: #fff;
+                background-image:
+                    radial-gradient(circle at 50% 0%, #1a222d 0%, transparent 70%),
+                    linear-gradient(var(--border) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            }
+            .brand-info h1 { color: var(--accent); }
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        
+        .container { max-width: 1100px; margin: 0 auto; animation: fadeIn 0.8s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 20px; background: var(--panel); border-radius: 20px;
+            border: 1px solid var(--border); margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        
+        .brand-info h1 { font-size: 1.2rem; font-weight: 800; letter-spacing: 1px; }
+        .brand-info p { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 2px; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 25px; }
+        .stat-box {
+            background: var(--panel); padding: 20px; border-radius: 20px;
+            border: 1px solid var(--border); position: relative; overflow: hidden;
+        }
+        .stat-box .label { font-size: 0.6rem; color: var(--text-dim); text-transform: uppercase; margin-bottom: 5px; display: block; }
+        .stat-box .value { font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; }
+        
+        .control-bar {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px; margin-bottom: 25px;
+        }
+        
+        .btn {
+            padding: 14px; border-radius: 12px; border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03); color: #fff; font-weight: 700;
+            font-size: 0.75rem; cursor: pointer; display: flex; align-items: center;
+            justify-content: center; gap: 8px; transition: 0.3s;
+        }
+        
+        .btn:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+        .btn-danger:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
+        
+        .search-container { position: relative; margin-bottom: 20px; }
+        .search-input {
+            width: 100%; padding: 15px 20px; border-radius: 12px; background: var(--panel);
+            border: 1px solid var(--border); color: #fff; outline: none; transition: 0.3s;
+        }
+        
+        .search-input:focus { border-color: var(--accent); box-shadow: 0 0 15px var(--glow); }
+        
+        .node-list { display: grid; gap: 15px; }
+        .node-card {
+            background: var(--panel); border-radius: 20px; border: 1px solid var(--border);
+            padding: 20px; position: relative; transition: 0.3s;
+        }
+        
+        .node-card:hover { border-color: rgba(249, 115, 22, 0.4); transform: scale(1.01); }
+        .node-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .node-num { font-size: 1.1rem; font-weight: 800; font-family: 'JetBrains Mono', monospace; }
+        .status-indicator { display: flex; align-items: center; gap: 10px; font-size: 0.7rem; font-weight: 700; }
+        
+        .beep-green { width: 10px; height: 10px; background: var(--success); border-radius: 50%; position: relative; box-shadow: 0 0 10px var(--success); animation: greenPulse 1.1s infinite; }
+        .beep-green::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--success); animation: ripple 1.1s infinite; opacity: 0; }
+        
+        .beep-offline { width: 10px; height: 10px; background: var(--danger); border-radius: 50%; position: relative; box-shadow: 0 0 10px var(--danger); animation: redPulse 1.4s infinite; }
+        .beep-offline::after { content: ""; position: absolute; inset: -5px; border-radius: 50%; border: 2px solid var(--danger); animation: ripple 1.4s infinite; opacity: 0; }
+        
+        @keyframes greenPulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.15); opacity: 0.6; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes redPulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        @keyframes ripple { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.8); opacity: 0; } }
+        
+        .node-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .action-btn { padding: 12px; border-radius: 10px; border: none; font-size: 0.75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; transition: 0.2s; }
+        .btn-boot { background: rgba(249, 115, 22, 0.1); color: var(--accent); }
+        .btn-boot:hover { background: var(--accent); color: #000; }
+        .btn-del { background: rgba(255, 59, 59, 0.1); color: var(--danger); }
+        .btn-del:hover { background: var(--danger); color: #fff; }
+
+        /* MODAL STYLES */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px;
+        }
+        
+        .modal-content {
+            background: var(--panel); border: 1px solid var(--border); border-radius: 20px;
+            padding: 30px; width: 100%; max-width: 400px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        
+        .modal-content i { font-size: 3rem; color: var(--danger); margin-bottom: 20px; }
+        .modal-content h2 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; }
+        .modal-content p { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 25px; line-height: 1.5; }
+        .modal-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        
+        @media (prefers-color-scheme: light) {
+            .modal-content { color: #1e293b; }
+            .modal-content h2 { color: #1e293b; }
+            .modal-content p { color: var(--text-dim); }
+        }
+        
+        @media (min-width: 768px) { 
+            .node-list { grid-template-columns: repeat(2, 1fr); } 
+            .stats-grid { grid-template-columns: repeat(4, 1fr); } 
+            .stat-box .value { font-size: 2.2rem; } 
+        }
+    </style>
+</head>
+<body>
+
+<div id="confirmModal" class="modal-overlay">
+    <div class="modal-content">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h2 id="modalTitle">Confirm Action</h2>
+        <p id="modalText">Are you sure you want to proceed?</p>
+        <div class="modal-btns">
+            <button class="btn" onclick="closeModal()">CANCEL</button>
+            <button id="modalConfirmBtn" class="btn btn-danger">PROCEED</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <header>
+        <div class="brand-info">
+            <h1>FEE-MINI <span style="font-weight:300;">V1</span></h1>
+            <p><i class="fas fa-terminal"></i> Admin Dashboard</p>
+        </div>
+        <div id="sysPulse" style="color:var(--success);font-size:0.7rem;font-weight:700;">
+            <i class="fas fa-circle" style="font-size:0.5rem;"></i> ENCRYPTED
+        </div>
+    </header>
+    <div class="stats-grid">
+        <div class="stat-box"><span class="label">Live Uplinks</span><div class="value" id="activeCount" style="color:var(--success);">0</div></div>
+        <div class="stat-box"><span class="label">Total Archive</span><div class="value" id="totalSessions">0</div></div>
+        <div class="stat-box"><span class="label">Latency</span><div class="value" id="pingVal" style="color:var(--accent);">--</div></div>
+        <div class="stat-box"><span class="label">Time</span><div class="value" id="clock" style="font-size:1.1rem;margin-top:10px;">00:00:00</div></div>
+    </div>
+    <div class="control-bar">
+        <button class="btn" onclick="refreshAll()"><i class="fas fa-sync"></i> REFRESH</button>
+        <button class="btn" onclick="connectAll()"><i class="fas fa-bolt"></i> BOOT ALL</button>
+        <button class="btn" onclick="reconnect()"><i class="fas fa-redo"></i> RELOG</button>
+        <button class="btn btn-danger" onclick="askWipe()"><i class="fas fa-skull"></i> PURGE</button>
+    </div>
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="SEARCH DATA NODE..." onkeyup="filterNodes()">
+    </div>
+    <div id="nodeList" class="node-list"></div>
+</div>
+<script>
+const API_URL = 'https://fee-mini-bot-8f2480a7aaae.herokuapp.com';
+
+function showModal(title, text, onConfirm) {
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalText').innerText = text;
+    const confirmBtn = document.getElementById('modalConfirmBtn');
+    
+    // Reset listener
+    confirmBtn.onclick = () => {
+        onConfirm();
+        closeModal();
+    };
+    
+    document.getElementById('confirmModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('confirmModal').style.display = 'none';
+}
+
+async function refreshAll() {
+    const start = Date.now();
+    try {
+        const [s,a] = await Promise.all([
+            fetch(`${API_URL}/api/sessions`).then(r=>r.json()),
+            fetch(`${API_URL}/api/active`).then(r=>r.json())
+        ]);
+        pingVal.innerText = (Date.now()-start)+'ms';
+        totalSessions.innerText = s.sessions.length;
+        activeCount.innerText = a.count;
+        clock.innerText = new Date().toLocaleTimeString([], {hour12:false});
+        renderNodes(s.sessions,a.active);
+    } catch { pingVal.innerText='ERR'; }
+}
+
+function renderNodes(sessions, active) {
+    nodeList.innerHTML = sessions.map(s=>{
+        const on = active.includes(s.number);
+        return `
+        <div class="node-card">
+            <div class="node-top">
+                <div class="node-num">${s.number}</div>
+                <div class="status-indicator">
+                    <div class="${on?'beep-green':'beep-offline'}"></div>
+                    <span style="color:${on?'var(--success)':'var(--danger)'}">${on?'TRANSMITTING':'OFFLINE'}</span>
+                </div>
+            </div>
+            <div style="font-size:.65rem;color:var(--text-dim);margin-bottom:15px;">
+                LAST SYNC: ${new Date(s.updatedAt).toLocaleString()}
+            </div>
+            <div class="node-actions">
+                <button class="action-btn btn-boot" onclick="reboot('${s.number}')">REBOOT</button>
+                <button class="action-btn btn-del" onclick="askDelete('${s.number}')">DELETE</button>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+async function reboot(number){await fetch(`${API_URL}/?number=${number}`);refreshAll();}
+
+function askDelete(number) {
+    showModal(
+        "TERMINATE NODE", 
+        `Confirm deletion of data node ${number}. This action is irreversible.`, 
+        async () => {
+            await fetch(`${API_URL}/api/session/delete`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({number})
+            });
+            refreshAll();
+        }
+    );
+}
+
+function askWipe() {
+    showModal(
+        "CORE PURGE", 
+        "Warning: You are about to wipe ALL session data from the database. Proceed?", 
+        async () => {
+            await fetch(`${API_URL}/api/terminate-all`, {method: 'POST'});
+            refreshAll();
+        }
+    );
+}
+
+async function connectAll(){await fetch(`${API_URL}/connect-all`);setTimeout(refreshAll,2000);}
+async function reconnect(){await fetch(`${API_URL}/reconnect`);setTimeout(refreshAll,2000);}
+
+function filterNodes(){
+    const v=searchInput.value.toLowerCase();
+    document.querySelectorAll('.node-card').forEach(c=>c.style.display=c.innerText.toLowerCase().includes(v)?'block':'none');
+}
+
+window.onload=refreshAll;
+setInterval(refreshAll,12000);
+</script>
+</body>
+</html>
